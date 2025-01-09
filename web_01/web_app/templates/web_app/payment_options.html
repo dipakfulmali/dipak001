@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        .payment-options {
+            background-color: #fff;
+            padding: 20px;
+            margin: 50px auto;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+        .payment-options img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .payment-options img:hover {
+            transform: scale(1.05);
+        }
+        .payment-info {
+            flex: 1;
+        }
+        .payment-info h2 {
+            font-size: 2em;
+            margin: 10px 0;
+            color: #333;
+        }
+        .payment-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .payment-info .price {
+            font-size: 1.5em;
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .payment-info form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .payment-info form label {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .payment-info form select {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 50%;
+            font-size: 1em;
+        }
+        .payment-info form button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .payment-info form button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-options">
+       
+        <div class="payment-info">
+            
+            <form method="POST" action="{% url 'process_payment' %}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <input type="hidden" name="user_id" value="{{ request.user.id }}">
+                <input type="hidden" name="amount" value="{{ product.price }}">
+                <label for="payment_method">Payment Method:</label>
+                <select name="payment_method" id="payment_method" required>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="debit_card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="cash_on_delivery">Cash on Delivery</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="google_pay">Google Pay</option>
+                    <option value="upi">UPI</option>
+                </select>
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

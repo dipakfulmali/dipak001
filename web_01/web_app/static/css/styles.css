@@ -1,0 +1,43 @@
+/* ...existing styles... */
+.btn-success,
+.btn-warning {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.btn-success {
+    background-color: #5cb85c;
+}
+
+.btn-success:hover {
+    background-color: #4cae4c;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* ...existing styles... */

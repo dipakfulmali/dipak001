@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+.payment-options {
+    background-color: #fff;
+    padding: 20px;
+    margin: 50px auto;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-options img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.payment-options h2 {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.payment-options p {
+    margin: 10px 0;
+    color: #666;
+    text-align: center;
+}
+
+.payment-options .price {
+    font-size: 1.5em;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.payment-options form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-options form label {
+    margin: 10px 0;
+}
+
+.payment-options form select {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50%;
+}
+
+.payment-options form button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.payment-options form button:hover {
+    background-color: #4cae4c;
+}
+
+/* Additional CSS improvements */
+.payment-options .payment-method {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.payment-options .payment-method label {
+    margin-right: 10px;
+}
+
+.payment-options .payment-method select {
+    width: auto;
+    padding: 5px;
+}
+
+/* New CSS for better styling */
+.payment-options .payment-method select:focus {
+    border-color: #5cb85c;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+.payment-options form button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+.payment-options .payment-method option {
+    padding: 10px;
+}

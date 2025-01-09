@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment API</title>
+</head>
+<body>
+    <h1>Payment API</h1>
+    <form id="payment-form" method="post">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount"><br><br>
+        <label for="currency">Currency:</label>
+        <input type="text" id="currency" name="currency"><br><br>
+        <label for="payment_method">Payment Method:</label>
+        <input type="text" id="payment_method" name="payment_method"><br><br>
+        <button type="submit">Submit Payment</button>
+    </form>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            fetch('/api/payment/', {
+                method: 'POST',
+                body: JSON.stringify({
+                    amount: formData.get('amount'),
+                    currency: formData.get('currency'),
+                    payment_method: formData.get('payment_method')
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+<form id="payment-form" method="post">
+    <label for="amount">Amount:</label>
+    <input type="text" id="amount" name="amount"><br><br>
+    <label for="currency">Currency:</label>
+    <input type="text" id="currency" name="currency"><br><br>
+    <label for="payment_method">Payment Method:</label>
+    <select id="payment_method" name="payment_method">

@@ -1,0 +1,11 @@
+<!-- ...existing code... -->
+{% for item in cart_items %}
+    <div class="cart-item">
+        <p>{{ item.product.name }}</p>
+        <p>{{ item.quantity }}</p>
+        <a href="{% url 'increase_quantity' item.product.id %}" class="btn btn-success">+</a>
+        <a href="{% url 'decrease_quantity' item.product.id %}" class="btn btn-warning">-</a>
+        <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-danger">Remove</a>
+    </div>
+{% endfor %}
+<!-- ...existing code... -->
